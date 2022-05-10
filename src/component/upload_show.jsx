@@ -73,11 +73,12 @@ export default function UploadShow() {
       await window.arweaveWallet.connect(["ACCESS_ADDRESS"]);
       addr = await window.arweaveWallet.getActiveAddress()
     }
-
+    console.log("ADDRESSS")
+    console.log(addr)
     const tx = await ardb.search('transactions')
       .from(addr)
       .tag('App-Name', 'SmartWeaveContract')
-      .tag('Protocol-Version', 'amber')
+      .tag('Permacast-Version', 'amber')
       .tag('Contract-Src', CONTRACT_SRC)
       .find();
 
@@ -114,6 +115,8 @@ export default function UploadShow() {
     }
 
     interaction.reward = (+interaction.reward * FEE_MULTIPLIER).toString();
+    await arweave.transactions.sign(interaction);
+    await arweave.transactions.post(interaction);
     if (interaction.id) {
       Swal.fire({
         title: t("uploadshow.swal.showadded.title"),
@@ -121,6 +124,7 @@ export default function UploadShow() {
         icon: 'success',
         customClass: "font-mono",
       })
+      console.log("INTERACTION.ID")
       console.log(interaction.id)
     } else {
       alert('An error occured.')
