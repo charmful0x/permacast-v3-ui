@@ -229,11 +229,11 @@ export default function UploadEpisode({ podcast }) {
         <form className="p-4" onSubmit={handleEpisodeUpload}>
           <div className="mb-3">
             <span className="label label-text">{t("uploadepisode.name")}</span>
-            <input className="input input-bordered" required pattern=".{3,50}" title="Between 3 and 50 characters" type="text" name="episodeName" placeholder="EP1: Introduction" />
+            <input className="input input-bordered" required pattern=".{3,500}" title="Between 3 and 500 characters" type="text" name="episodeName" placeholder="EP1: Introduction" />
           </div>
           <div className="mb-3">
             <span className="label label-text">{t("uploadepisode.description")}</span>
-            <input className="input input-bordered" required maxLength="250" as="textarea" name="episodeShowNotes" placeholder="In this episode..." rows={3} />
+            <input className="input input-bordered" required pattern=".{1,5000}" title="Between 1 and 5000 characters" type="text" name="episodeShowNotes" placeholder="In this episode..." rows={3} />
           </div>
           <div className="mb-5">
             <span className="label label-text">{t("uploadepisode.file")}</span>
