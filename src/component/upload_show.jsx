@@ -245,11 +245,11 @@ export default function UploadShow() {
             <form onSubmit={handleShowUpload}>
               <div className='mb-3'>
                 <span className="label label-text">{t("uploadshow.name")}</span>
-                <input className="input input-bordered w-1/2" required pattern=".{3,50}" title="Between 3 and 50 characters" type="text" name="podcastName" placeholder="The Arweave Show" />
+                <input className="input input-bordered w-1/2" required pattern=".{2,500}" title="Between 2 and 500 characters" type="text" name="podcastName" placeholder="The Arweave Show" />
               </div>
               <div className='my-3'>
                 <span className="label label-text">{t("uploadshow.description")}</span>
-                <textarea className="w-1/2 textarea textarea-bordered" required pattern=".{10,75}" title="Between 10 and 75 characters" as="textarea" name="podcastDescription" placeholder="This is a show about..." rows={3} />
+                <textarea className="w-1/2 textarea textarea-bordered" required pattern=".{10,15000}" title="Between 10 and 15000 characters" as="textarea" name="podcastDescription" placeholder="This is a show about..." rows={3} />
               </div>
               <div className='my-3'>
                 <span className="label label-text">{t("uploadshow.image")}</span>
@@ -257,7 +257,7 @@ export default function UploadShow() {
               </div>
               <div className='my-3'>
                 <span className="label label-text">{t("uploadshow.author")}</span>
-                <input className="input input-bordered w-1/2" required pattern=".{2,50}" title="Between 2 and 50 characters" type="text" name="podcastAuthor" placeholder="Sam Williams" />
+                <input className="input input-bordered w-1/2" required pattern=".{2,150}" title="Between 2 and 150 characters" type="text" name="podcastAuthor" placeholder="Sam Williams" />
               </div>
               <div className='my-3'>
                 <span className="label label-text">{t("uploadshow.email")}</span>
